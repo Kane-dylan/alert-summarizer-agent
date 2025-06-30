@@ -1,6 +1,16 @@
 timestamp,message
-2024-06-30 10:30:00,High temperature in AHU-3 zone
-2024-06-30 10:31:00,Repeated vibration warning on Pump-2
-2024-06-30 10:32:00,Power surge detected in Panel A
-2024-06-30 10:33:00,AHU-3 zone above threshold for 15 min
-2024-06-30 10:34:00,Inverter 4 showing fluctuating voltage
+2024-06-30 10:30:00,High temperature in AHU-3 zone exceeding 85°F threshold
+2024-06-30 10:31:00,Repeated vibration warning on Pump-2 detected every 15 seconds
+2024-06-30 10:32:00,Power surge detected in Panel A causing system instability
+2024-06-30 10:33:00,AHU-3 zone temperature above threshold for 15 minutes continuously
+2024-06-30 10:34:00,Inverter 4 showing fluctuating voltage between 220-240V
+2024-06-30 10:35:00,Water leak sensor triggered in basement level B1
+2024-06-30 10:36:00,Emergency lighting system failure in stairwell C
+2024-06-30 10:37:00,Fire alarm system offline in building sector 7
+2024-06-30 10:38:00,HVAC system compressor overheating in unit AHU-3
+2024-06-30 10:39:00,Network connectivity lost to building automation system
+2024-06-30 10:40:00,Backup generator fuel level critically low at 15%
+2024-06-30 10:41:00,Security system motion detector malfunction in zone 12
+2024-06-30 10:42:00,Elevator car 3 emergency stop activated on floor 8
+2024-06-30 10:43:00,UPS battery backup system voltage drop detected
+2024-06-30 10:44:00,Chiller plant cooling tower fan motor failure
