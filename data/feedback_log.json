@@ -1,0 +1,58 @@
+[
+  {
+    "timestamp": "2025-06-30T16:02:49.158888",
+    "cluster_id": 0,
+    "summary": "Cluster 0: Power issues",
+    "rating": "Not Helpful",
+    "comment": "Too vague"
+  },
+  {
+    "timestamp": "2025-06-30T16:02:49.158888",
+    "cluster_id": 0,
+    "summary": "Cluster 0: Power issues",
+    "rating": "Not Helpful",
+    "comment": "Need more detail"
+  },
+  {
+    "timestamp": "2025-06-30T16:02:49.172198",
+    "cluster_id": 0,
+    "summary": "Cluster 0: Power issues",
+    "rating": "Helpful",
+    "comment": "Good overview"
+  },
+  {
+    "timestamp": "2025-06-30T16:02:49.175178",
+    "cluster_id": 1,
+    "summary": "Multiple high temperature alerts in AHU-3",
+    "rating": "Helpful",
+    "comment": "Well written"
+  },
+  {
+    "timestamp": "2025-06-30T16:02:49.175178",
+    "cluster_id": 1,
+    "summary": "Multiple high temperature alerts in AHU-3",
+    "rating": "Helpful",
+    "comment": "Clear and actionable"
+  },
+  {
+    "timestamp": "2025-06-30T16:02:49.180060",
+    "cluster_id": 1,
+    "summary": "Multiple high temperature alerts in AHU-3",
+    "rating": "Helpful",
+    "comment": "Perfect summary"
+  },
+  {
+    "timestamp": "2025-06-30T16:19:53.584640",
+    "cluster_id": 0,
+    "summary": "Test cluster 0 summary",
+    "rating": "Helpful",
+    "comment": "This is a test"
+  },
+  {
+    "timestamp": "2025-06-30T16:19:53.596907",
+    "cluster_id": 1,
+    "summary": "Test cluster 1 summary",
+    "rating": "Not Helpful",
+    "comment": "Needs improvement"
+  }
+]

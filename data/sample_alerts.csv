@@ -1,0 +1,6 @@
+timestamp,message
+2024-06-30 10:30:00,High temperature in AHU-3 zone
+2024-06-30 10:31:00,Repeated vibration warning on Pump-2
+2024-06-30 10:32:00,Power surge detected in Panel A
+2024-06-30 10:33:00,AHU-3 zone above threshold for 15 min
+2024-06-30 10:34:00,Inverter 4 showing fluctuating voltage
