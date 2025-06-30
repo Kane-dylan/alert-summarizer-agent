@@ -1,16 +1,22 @@
 timestamp,message
-2024-06-30 10:30:00,High temperature in AHU-3 zone exceeding 85°F threshold
-2024-06-30 10:31:00,Repeated vibration warning on Pump-2 detected every 15 seconds
-2024-06-30 10:32:00,Power surge detected in Panel A causing system instability
-2024-06-30 10:33:00,AHU-3 zone temperature above threshold for 15 minutes continuously
-2024-06-30 10:34:00,Inverter 4 showing fluctuating voltage between 220-240V
-2024-06-30 10:35:00,Water leak sensor triggered in basement level B1
-2024-06-30 10:36:00,Emergency lighting system failure in stairwell C
-2024-06-30 10:37:00,Fire alarm system offline in building sector 7
-2024-06-30 10:38:00,HVAC system compressor overheating in unit AHU-3
-2024-06-30 10:39:00,Network connectivity lost to building automation system
-2024-06-30 10:40:00,Backup generator fuel level critically low at 15%
-2024-06-30 10:41:00,Security system motion detector malfunction in zone 12
-2024-06-30 10:42:00,Elevator car 3 emergency stop activated on floor 8
-2024-06-30 10:43:00,UPS battery backup system voltage drop detected
-2024-06-30 10:44:00,Chiller plant cooling tower fan motor failure
+2025-06-30 08:01:00,High temperature in AHU-3 sustained above 85°C for 20 minutes
+2025-06-30 08:02:10,Vibration spike detected on Pump-4 exceeding 7.5 mm/s
+2025-06-30 08:03:45,Low airflow in AHU-2 possibly due to filter blockage
+2025-06-30 08:05:30,Voltage fluctuation observed in Inverter-2 beyond safe threshold
+2025-06-30 08:06:00,Multiple fire panel resets in Zone B in last 10 minutes
+2025-06-30 08:07:30,Repeated overcurrent in Panel A affecting 3 downstream circuits
+2025-06-30 08:08:10,AHU-3 temperature dropped abruptly by 15°C — sensor anomaly suspected
+2025-06-30 08:09:20,Connectivity loss with Pump-2 — telemetry offline
+2025-06-30 08:10:00,Leakage detected in chilled water pipe near Pump-1
+2025-06-30 08:11:30,Power drop in UPS-1 — battery switch-over initiated
+2025-06-30 08:12:15,Inverter-2 shows continued voltage instability post reboot
+2025-06-30 08:13:00,Smoke sensor false alarms triggered in Server Room 2
+2025-06-30 08:14:45,High vibration in Pump-4 again — possible mechanical looseness
+2025-06-30 08:15:30,AHU-2 airflow restored — filter cleaned
+2025-06-30 08:16:30,UPS-1 performance degraded — runtime reduced by 30%
+2025-06-30 08:17:00,Fire panel reboot successful in Zone B
+2025-06-30 08:18:00,Residual leakage alerts in chilled water loop
+2025-06-30 08:19:30,AHU-3 returned to normal temperature range
+2025-06-30 08:20:00,Panel A circuit breaker tripped due to short surge
+2025-06-30 08:21:30,Connectivity restored to Pump-2 telemetry
+

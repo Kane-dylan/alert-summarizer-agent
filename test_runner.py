@@ -17,7 +17,8 @@ DATA_DIR = os.path.join(ROOT_DIR, "data")
 sys.path.append(SRC_DIR)
 sys.path.append(APP_DIR)
 
-from summarizer import AlertSummarizer
+from summarizer_lite import AlertSummarizerLite
+from summarizer import AlertSummarizer  # Import the full summarizer too
 from feedback_loop import save_feedback, load_feedback, get_feedback_stats
 
 SAMPLE_ALERT_PATH = os.path.join(DATA_DIR, "sample_alerts.csv")
@@ -50,7 +51,7 @@ def test_summarization(df):
     """Test the summarization process"""
     print("\n🧠 Testing summarization...")
     
-    summarizer = AlertSummarizer(n_clusters=2)
+    summarizer = AlertSummarizerLite(n_clusters=2)
     
     try:
         result = summarizer.run_from_dataframe(df)

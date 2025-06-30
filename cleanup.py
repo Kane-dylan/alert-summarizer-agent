@@ -1,4 +1,133 @@
-import pandas as pd
+#!/usr/bin/env python3
+"""
+Cleanup script for Alert Summarizer Agent
+Removes unnecessary files and optimizes the codebase
+"""
+
+import os
+import shutil
+import sys
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).parent.absolute()
+
+def clean_pycache():
+    """Remove all __pycache__ directories"""
+    print("🧹 Cleaning __pycache__ directories...")
+    count = 0
+    for pycache_dir in ROOT_DIR.rglob("__pycache__"):
+        try:
+            shutil.rmtree(pycache_dir)
+            count += 1
+            print(f"  Removed: {pycache_dir}")
+        except Exception as e:
+            print(f"  Failed to remove {pycache_dir}: {e}")
+    print(f"✅ Removed {count} __pycache__ directories")
+
+def clean_backup_files():
+    """Remove backup files and temporary files"""
+    print("🧹 Cleaning backup and temporary files...")
+    patterns = ["*_backup.py", "*_old.py", "*_fixed.py", "test_advanced_model.py"]
+    count = 0
+    
+    for pattern in patterns:
+        for file in ROOT_DIR.rglob(pattern):
+            try:
+                file.unlink()
+                count += 1
+                print(f"  Removed: {file}")
+            except Exception as e:
+                print(f"  Failed to remove {file}: {e}")
+    print(f"✅ Removed {count} backup/temporary files")
+
+def clean_model_cache():
+    """Clean model cache directory"""
+    print("🧹 Cleaning model cache...")
+    cache_dir = ROOT_DIR / ".model_cache"
+    if cache_dir.exists():
+        try:
+            shutil.rmtree(cache_dir)
+            print(f"  Removed: {cache_dir}")
+        except Exception as e:
+            print(f"  Failed to remove {cache_dir}: {e}")
+    print("✅ Model cache cleaned")
+
+def clean_logs():
+    """Clean log files"""
+    print("🧹 Cleaning log files...")
+    log_patterns = ["*.log", "*.out"]
+    count = 0
+    
+    for pattern in log_patterns:
+        for file in ROOT_DIR.rglob(pattern):
+            try:
+                file.unlink()
+                count += 1
+                print(f"  Removed: {file}")
+            except Exception as e:
+                print(f"  Failed to remove {file}: {e}")
+    print(f"✅ Removed {count} log files")
+
+def optimize_requirements():
+    """Create optimized requirements.txt"""
+    print("📦 Optimizing requirements.txt...")
+    
+    # Core requirements only
+    requirements = [
+        "pandas>=2.0.0",
+        "numpy>=1.21.0", 
+        "scikit-learn>=1.3.0",
+        "streamlit>=1.45.0",
+        "sentence-transformers>=2.2.0",
+        "transformers>=4.30.0",
+        "accelerate>=0.20.0",
+        "torch>=2.0.0"
+    ]
+    
+    requirements_file = ROOT_DIR / "requirements.txt"
+    try:
+        with open(requirements_file, 'w') as f:
+            for req in requirements:
+                f.write(req + '\n')
+        print(f"✅ Updated {requirements_file}")
+    except Exception as e:
+        print(f"❌ Failed to update requirements: {e}")
+
+def show_project_size():
+    """Show project size information"""
+    print("📊 Project size analysis...")
+    
+    total_size = 0
+    file_count = 0
+    
+    for file in ROOT_DIR.rglob("*"):
+        if file.is_file():
+            size = file.stat().st_size
+            total_size += size
+            file_count += 1
+    
+    # Convert to MB
+    total_mb = total_size / (1024 * 1024)
+    
+    print(f"  Total files: {file_count}")
+    print(f"  Total size: {total_mb:.2f} MB")
+    
+    # Show largest directories
+    dir_sizes = {}
+    for item in ROOT_DIR.iterdir():
+        if item.is_dir() and item.name not in ['.git', 'venv']:
+            size = sum(f.stat().st_size for f in item.rglob("*") if f.is_file())
+            dir_sizes[item.name] = size / (1024 * 1024)
+    
+    print("  Directory sizes:")
+    for name, size in sorted(dir_sizes.items(), key=lambda x: x[1], reverse=True):
+        print(f"    {name}: {size:.2f} MB")
+
+def create_simple_summarizer():
+    """Create a simplified, robust summarizer"""
+    print("🔧 Creating simplified summarizer...")
+    
+    summarizer_content = '''import pandas as pd
 from sentence_transformers import SentenceTransformer
 from sklearn.cluster import KMeans
 import numpy as np
@@ -32,7 +161,7 @@ class AlertSummarizer:
                     self._embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
                     if self.use_cache:
                         _model_cache[cache_key] = self._embedding_model
-                    print("[INFO] Embedding model loaded successfully")
+                    print("[INFO] ✅ Embedding model loaded")
                 except Exception as e:
                     print(f"[ERROR] Failed to load embedding model: {e}")
                     raise
@@ -66,7 +195,7 @@ class AlertSummarizer:
                         _model_cache[cache_key] = self._summarizer
                     
                     self._use_ai = True
-                    print("[INFO] AI summarizer loaded successfully")
+                    print("[INFO] ✅ AI summarizer loaded")
                     return True
                     
                 except Exception as e:
@@ -79,7 +208,7 @@ class AlertSummarizer:
             return True
 
     def _extractive_summary(self, text, max_sentences=2):
-        """Simple extractive summarization fallback"""
+        """Simple extractive summarization"""
         sentences = [s.strip() for s in text.split('.') if s.strip()]
         if not sentences:
             return "No summary available"
@@ -112,7 +241,7 @@ class AlertSummarizer:
         summaries = []
         for text in grouped_messages['message']:
             try:
-                # Limit text length to avoid memory issues
+                # Limit text length
                 if len(text) > 1000:
                     text = text[:1000] + "..."
                 
@@ -150,9 +279,51 @@ class AlertSummarizer:
         grouped = self.group_by_cluster(df, labels)
         summarized = self.summarize_grouped_alerts(grouped)
         
-        # Store cluster assignments for proper display
+        # Store cluster assignments
         df_with_clusters = df.copy()
         df_with_clusters['cluster'] = labels
         setattr(summarized, '_cluster_assignments', df_with_clusters)
 
         return summarized
+'''
+    
+    summarizer_file = ROOT_DIR / "src" / "summarizer.py"
+    try:
+        with open(summarizer_file, 'w') as f:
+            f.write(summarizer_content)
+        print(f"✅ Created simplified {summarizer_file}")
+    except Exception as e:
+        print(f"❌ Failed to create summarizer: {e}")
+
+def main():
+    """Main cleanup function"""
+    print("🧹 Alert Summarizer Agent - Cleanup & Optimization")
+    print("=" * 55)
+    
+    # Show current state
+    show_project_size()
+    print()
+    
+    # Cleanup operations
+    clean_pycache()
+    clean_backup_files()
+    clean_model_cache()
+    clean_logs()
+    optimize_requirements()
+    create_simple_summarizer()
+    
+    print()
+    print("🎉 Cleanup completed!")
+    print()
+    
+    # Show final state
+    show_project_size()
+    
+    print()
+    print("📋 Next steps:")
+    print("1. Run: python deploy.py setup")
+    print("2. Test: python deploy.py test")
+    print("3. Start: python deploy.py run")
+
+if __name__ == "__main__":
+    main()

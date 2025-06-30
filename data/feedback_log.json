@@ -1,9 +1,37 @@
 [
   {
-    "timestamp": "2025-06-30T21:40:23.580643",
+    "timestamp": "2025-07-01T01:28:20.299037",
     "cluster_id": 0,
     "summary": "Test summary for cluster 0",
     "rating": "Helpful",
     "comment": "Works well"
+  },
+  {
+    "timestamp": "2025-07-01T01:41:49.888042",
+    "cluster_id": 0,
+    "summary": "High temperature in AHU-3 sustained above 85\u00b0C for 20 minutes Low airflow in AHU-2 possibly due to filter blockage AHU-3 temperature dropped abruptly by 15\u00b0C \u2014 sensor anomaly suspected AHU-2 airflow restored \u2014 filter cleaned AHU-3 returned to normal temperature range.",
+    "rating": "Not Helpful",
+    "comment": "don't repeat the same  terms in the summery "
+  },
+  {
+    "timestamp": "2025-07-01T01:42:17.216329",
+    "cluster_id": 1,
+    "summary": "Voltage fluctuation observed in Inverter-2 beyond safe threshold Multiple fire panel resets in Zone B in last 10 minutes Repeated overcurrent in Panel A affecting 3 downstream circuits Power drop in UPS-1 \u2014 battery switch-over initiated Inverter-2 shows continued voltage instability post reboot Smoke sensor false alarms triggered in Server Room 2 UPS-1 performance degraded \u2014 runtime reduced by 30% Fire panel reboot successful in Zone B Residual leakage alerts in chilled water loop Panel A circuit breaker tripped due to short surge.",
+    "rating": "Helpful",
+    "comment": null
+  },
+  {
+    "timestamp": "2025-07-01T01:42:20.764079",
+    "cluster_id": 2,
+    "summary": "Vibration spike detected on Pump-4 exceeding 7. 5 mm/s Connectivity loss with Pump-2 \u2014 telemetry offline Leakage detected in chilled water pipe near Pump-1 High vibration in Pump-4 again \u2014 possible mechanical looseness Connectivity restored to Pump-2 telemetry.",
+    "rating": "Not Helpful",
+    "comment": "don't repeat the same  terms in the summery "
+  },
+  {
+    "timestamp": "2025-07-01T01:42:23.025288",
+    "cluster_id": 0,
+    "summary": "High temperature in AHU-3 sustained above 85\u00b0C for 20 minutes Low airflow in AHU-2 possibly due to filter blockage AHU-3 temperature dropped abruptly by 15\u00b0C \u2014 sensor anomaly suspected AHU-2 airflow restored \u2014 filter cleaned AHU-3 returned to normal temperature range.",
+    "rating": "Not Helpful",
+    "comment": null
   }
 ]
