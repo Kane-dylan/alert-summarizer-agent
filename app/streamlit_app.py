@@ -67,25 +67,53 @@ with col1:
     uploaded_file = None
     df = None
     
+    # Check if we should load sample data
     if st.session_state.get('use_sample', False):
         sample_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'sample_alerts.csv')
         try:
             df = pd.read_csv(sample_path)
             st.success(f"✅ Loaded sample dataset with {len(df)} alerts")
+            # Store sample data in session state to persist it
+            st.session_state.loaded_df = df
+            st.session_state.data_source = "sample"
             st.session_state.use_sample = False  # Reset flag
         except Exception as e:
             st.error(f"❌ Error loading sample data: {str(e)}")
             st.session_state.use_sample = False
-    else:
-        # Upload alert CSV
+    
+    # Check if we have data persisted in session state
+    elif 'loaded_df' in st.session_state and st.session_state.get('data_source') == 'sample':
+        df = st.session_state.loaded_df
+        st.success(f"✅ Sample dataset loaded ({len(df)} alerts)")
+        st.info("💡 Using sample data - you can clear this and upload your own CSV using the button below.")
+    
+    # Handle file upload if no sample data is being used
+    if df is None:
         uploaded_file = st.file_uploader("Upload alert CSV file", type=["csv"], 
                                         help="CSV should contain a 'message' column with alert text")
         
         if uploaded_file:
             try:
                 df = pd.read_csv(uploaded_file)
+                # Store uploaded data in session state
+                st.session_state.loaded_df = df
+                st.session_state.data_source = "upload"
+                st.success(f"✅ Uploaded dataset loaded ({len(df)} alerts)")
             except Exception as e:
                 st.error(f"❌ Error reading CSV file: {str(e)}")
+    
+    # Add a button to clear current data
+    if df is not None:
+        col_clear, col_space = st.columns([1, 3])
+        with col_clear:
+            if st.button("🗑️ Clear Data", type="secondary"):
+                if 'loaded_df' in st.session_state:
+                    del st.session_state.loaded_df
+                if 'data_source' in st.session_state:
+                    del st.session_state.data_source
+                if 'summaries_df' in st.session_state:
+                    del st.session_state.summaries_df
+                st.rerun()
     
     if df is not None:
         # Validate CSV structure
