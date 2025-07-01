@@ -26,7 +26,7 @@ Built as part of an application for the **AI Systems Internship at Xempla**, thi
 
 ## 🖼️ Demo
 
-➡️ [Loom Video Link Placeholder]  
+➡️ [https://www.loom.com/share/3dd1fedcd0c34decb970fa6b5a0bb52c?sid=85f65b08-495d-490b-aa4f-34dd6b1eecd7]
 _This short video explains the project, use case, and demo of the prototype._
 
 ---
